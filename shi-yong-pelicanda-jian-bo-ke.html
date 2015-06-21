@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>使用pelican搭建博客</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li class="active"><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                    <li><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/shi-yong-pelicanda-jian-bo-ke.html" rel="bookmark"
+           title="Permalink to 使用pelican搭建博客">使用pelican搭建博客</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-18T00:00:00+08:00">
+                Published: 一 18 八月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->      <p>之前的博客用的是octopress， 挺好的， 也没啥毛病， 就是我不会ruby，出个小问题纠结大半天。</p>
+<p>因为最熟悉的语言是python，找了下有没有python的frame，发现还真有： pelican。</p>
+<p>这下子就简单了：</p>
+<ol>
+<li>pip install pelican</li>
+<li>pip install Markdown</li>
+<li>pelican-quickstart</li>
+</ol>
+<p>这些整完后就可以写blog了。</p>
+<p>很多人一上手就用了octopress， 反而弄混了，这里解释下：</p>
+<ul>
+<li><s>github pages, 在gh-pages下都是html文件。</s></li>
+<li>octopress、pelican、jeklly， 都是用来生成这些html的。</li>
+<li>理论上， 鉴于国内github的速度， 最好的办法是自己弄一台服务器，开一个最简单的http server。</li>
+</ul>
+<p>为了方便起见， 改写了MakeFile文件， 增加了对百度云的支持， 同时因为一部分文档是不适合泄露的，额外建立一个private的content和output的文件夹， 在MakeFile的html和serve那里增加了对这些的支持。</p>
+<p>申请了一台阿里云的服务器， 准备部署。</p>
+<h2>update</h2>
+<p>申请到阿里云的服务器了， 在服务器上用了个最简单的httpserver:</p>
+<div class="highlight"><pre>nohup python -m SimpleHTTPServer <span class="m">80</span> <span class="p">&amp;</span>
+</pre></div>
+
+
+<p>在makefile里面配置rsync同步。
+大家可以访问这个地址<a href="http://www.juzishanshu.com">橘子杉树</a></p>
+<p>额， 最终有个坑， gh-pages分支提交的是md文件， 对于我们的case提交的直接是最终的html， 所以应该提交到master这个分支。</p>
+<h3>update</h3>
+<p>今天让多个人访问的时候服务器就顶不住了， 主要原因是木器啊那图片是直接放web server上的。</p>
+<p>pelican原生对图片支持不太好， 它的插件库里面有一个better_figures_and_images，能够展示更优美的图片， 但是只支持本地图片， 我修改了这个插件<a href="https://github.com/getpelican/pelican-plugins/tree/master/better_figures_and_images">github地址</a>, 需要的直接clone我的插件库就好， 相关修改已经提交pelican。</p>
+<p>申请了阿里云的oss， 简直是业界良心， 便宜好用耐操。 </p>
+<h3>update 2014 08 24</h3>
+<p>服务器换了nginx， 配置很简单， 修改下user， 修改下root之类的就好了。</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

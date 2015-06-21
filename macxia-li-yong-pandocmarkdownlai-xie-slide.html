@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>MAC下利用pandoc+markdown来写slide</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li class="active"><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                    <li><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/macxia-li-yong-pandocmarkdownlai-xie-slide.html" rel="bookmark"
+           title="Permalink to MAC下利用pandoc+markdown来写slide">MAC下利用pandoc+markdown来写slide</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-01-16T00:00:00+08:00">
+                Published: 五 16 一月 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>Mac下用markdown+markdown写slide</h1>
+<h2>WHY</h2>
+<p>写一份markdown文件， 根据需要可以生成:</p>
+<ul>
+<li>slide pdf</li>
+<li>document pdf</li>
+<li>slide html</li>
+</ul>
+<h2>安装</h2>
+<div class="highlight"><pre>brew install pandoc
+</pre></div>
+
+
+<h2>源码</h2>
+<div class="highlight"><pre># today
+
+## morning
+- I want to have breakfast
+
+## afternoon
+- I want to have lunch
+</pre></div>
+
+
+<h2>PDF</h2>
+<div class="highlight"><pre>pandoc -D latex &gt; mytemplate.tex
+</pre></div>
+
+
+<div class="highlight"><pre>pandoc test.md -o test.pdf -t beamer 
+--latex-engine<span class="o">=</span>xelatex 
+--template<span class="o">=</span>mytemplate.tex
+</pre></div>
+
+
+<p>直接执行是不成功的。</p>
+<h2>增加中文字体配置</h2>
+<p>修改mytemplate.tex</p>
+<div class="highlight"><pre><span class="k">\ifxetex</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>fontspec,xltxtra,xunicode<span class="nb">}</span>
+<span class="k">\defaultfontfeatures</span><span class="nb">{</span>Mapping=tex-text<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>xeCJK<span class="nb">}</span>
+<span class="k">\setCJKmainfont</span><span class="na">[BoldFont = Hiragino Sans GB W6]</span><span class="nb">{</span>Hiragino Sans GB W3<span class="nb">}</span>
+<span class="k">\setCJKsansfont</span><span class="na">[BoldFont=SimHei]</span><span class="nb">{</span>SimHei<span class="nb">}</span>
+<span class="k">\setCJKmonofont</span><span class="nb">{</span>SimHei<span class="nb">}</span>
+<span class="k">\else</span>
+<span class="k">\usepackage</span><span class="na">[unicode=true]</span><span class="nb">{</span>hyperref<span class="nb">}</span>
+<span class="k">\fi</span>
+</pre></div>
+
+
+<h2>html5</h2>
+<ul>
+<li>DZSlides</li>
+<li>Slidy</li>
+<li>S5</li>
+<li>Slideous</li>
+<li>reveal.js</li>
+</ul>
+<h2>reveal.js</h2>
+<div class="highlight"><pre>git clone https://github.com/hakimel/reveal.js
+
+pandoc slides.md -o slides.html -t revealjs 
+-s -V <span class="nv">theme</span><span class="o">=</span>beige
+</pre></div>
+
+
+<p>这样是执行不成功的</p>
+<h3>fix</h3>
+<p>不要用reveal 3.0， 用reveal.js 2.6</p>
+<h2>reveal.js背景</h2>
+<ul>
+<li>default：（默认）深灰色背景，白色文字</li>
+<li>beige：米色背景，深色文字</li>
+<li>sky：天蓝色背景，白色细文字</li>
+<li>night：黑色背景，白色粗文字</li>
+<li>serif：浅色背景，灰色衬线文字</li>
+<li>simple：白色背景，黑色文字</li>
+<li>solarized：奶油色背景，深青色文字</li>
+</ul>
+<h2>Makefile</h2>
+<p>利用makefile来自动化构建</p>
+<div class="highlight"><pre>slide:<span class="si">${</span><span class="nv">f</span><span class="si">}</span>
+    pandoc <span class="si">${</span><span class="nv">f</span><span class="si">}</span> -o pdf_slide/<span class="si">${</span><span class="nv">f</span><span class="si">}</span>.pdf -t beamer --latex-engine<span class="o">=</span>xelatex --template<span class="o">=</span>./mytemplate.tex
+
+pdf:<span class="si">${</span><span class="nv">f</span><span class="si">}</span>
+    pandoc <span class="si">${</span><span class="nv">f</span><span class="si">}</span> -o pdf_doc/<span class="si">${</span><span class="nv">f</span><span class="si">}</span>.pdf  --latex-engine<span class="o">=</span>xelatex --template<span class="o">=</span>./mytemplate.tex
+
+reveal:<span class="si">${</span><span class="nv">f</span><span class="si">}</span>
+    pandoc <span class="si">${</span><span class="nv">f</span><span class="si">}</span> -o html_slide/<span class="si">${</span><span class="nv">f</span><span class="si">}</span>.html -t revealjs -s -V <span class="nv">theme</span><span class="o">=</span>beige
+
+all:<span class="si">${</span><span class="nv">f</span><span class="si">}</span> slide pdf reveal
+    <span class="nb">echo</span> <span class="s2">&quot;ok&quot;</span>
+
+print:<span class="si">${</span><span class="nv">f</span><span class="si">}</span>
+    <span class="nb">echo</span> <span class="si">${</span><span class="nv">f</span><span class="si">}</span>
+</pre></div>
+
+
+<h2>make usage</h2>
+<div class="highlight"><pre>make slide <span class="nv">f</span><span class="o">=</span>pandoc_setup.md 
+make pdf <span class="nv">f</span><span class="o">=</span>pandoc_setup.md 
+make reveal <span class="nv">f</span><span class="o">=</span>pandoc_setup.md 
+</pre></div>
+
+
+<h2>文件结构</h2>
+<div class="highlight"><pre>.
+├── Makefile
+├── html_slide
+│   ├── pandoc_setup.md.html
+│   └── reveal.js
+├── mytemplate.tex
+├── pandoc_setup.md
+├── pdf_doc
+│   └── pandoc_setup.md.pdf
+└── pdf_slide
+    └── pandoc_setup.md.pdf
+</pre></div>
+
+
+<h2>thanks</h2>
+<p><a href="https://github.com/haoyuan-hu/markdown_slide.git">gitlab地址</a></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>Recovering 方法</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                    <li><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/recovering-fang-fa.html" rel="bookmark"
+           title="Permalink to Recovering 方法">Recovering 方法</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-11-20T20:00:00+08:00">
+                Published: 四 20 十一月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+<p>tags: <a href="/tag/zui-you-hua.html">最优化</a> </p>
+</footer><!-- /.post-info -->      <p>对于很高的dimension， 比较常用的时random variable， 老金表示利用一下转化效果会更好。
+paper参见：recovering the opt solution by dual random projection</p>
+<div class="highlight"><pre><span class="n">V</span><span class="p">=</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mf">0.001</span><span class="p">;</span> 
+<span class="p">[</span><span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span> <span class="p">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">V</span> <span class="o">*</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">[</span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">B</span><span class="p">]</span> <span class="p">=</span> <span class="n">svds</span><span class="p">(</span><span class="n">Q</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">V</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="n">A</span> <span class="p">=</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">U</span><span class="p">;</span>
+<span class="n">sumsqr</span><span class="p">(</span><span class="n">V</span><span class="o">-</span><span class="n">A</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">B</span><span class="o">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>V是自己造的一个数据，rank是20</li>
+<li>V * randn(100, 30） 是在做那个random proj</li>
+<li>qr(...)是做qr decomposition</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

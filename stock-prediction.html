@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>Stock Prediction</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                    <li class="active"><a href="/category/tech.html">tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/stock-prediction.html" rel="bookmark"
+           title="Permalink to Stock Prediction">Stock Prediction</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-06-10T00:00:00+08:00">
+                Published: 三 10 六月 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/tech.html">tech</a>.</p>
+
+</footer><!-- /.post-info -->      <h1>Stock Prediction</h1>
+<h2>Using Machine Learning And Bigdata</h2>
+<h1>Outline</h1>
+<ul>
+<li>Pair Trade</li>
+<li>涨幅预测</li>
+<li>股指预测</li>
+</ul>
+<h1>Pair Trade</h1>
+<ul>
+<li>define : 在价值规律的前提下，寻找价值相背离的一对股票， 做对冲操作。</li>
+<li>key Point : Pair distance的准确性。</li>
+</ul>
+<h1>Statistical Pair Trade</h1>
+<ul>
+<li>采用推荐中的协同过滤公式, 计算整个市场每一只股票的相似度</li>
+<li>寻找相似股票中， 近期价值偏离的一对pair</li>
+<li>进行对冲操作</li>
+<li>Problem:难以确认最合适的相似度公式</li>
+</ul>
+<h1>Machine Learning Pair Trade</h1>
+<ul>
+<li>将所有的相似度公式作为一个feature</li>
+<li>利用第二天的偏离作为label</li>
+<li>直接learn出各个相似度公式的权重</li>
+</ul>
+<h1>Machine Learning 涨幅预测</h1>
+<ul>
+<li>data source : 股票市场数据，微博、雪球等ugc数据，资讯数据，电商数据</li>
+<li>Feature Engineering: 领域知识特征, n-gram、nn等feature Engineering</li>
+<li>algorithm : MART, Learning To Rank, FTRL, BOPR </li>
+</ul>
+<h1>Data Source</h1>
+<ul>
+<li>原生金融相关数据，包括上市公司的表现， 股票本身的表现</li>
+<li>金融资讯：来源于资讯数据的抓取， 关键词分析</li>
+<li>网民的上网数据： 关键词分析</li>
+<li>标志性的电商数据: 行业表现</li>
+</ul>
+<p>依托于odps， 我们可以轻松的存储使用这部分全量数据。</p>
+<h1>Feature Engineering</h1>
+<ul>
+<li>领域知识的feature构建, 有明确的金融含义的特征</li>
+<li>n-gram、word2vec : Feature generation  </li>
+<li>nn : 利用多层nn寻找隐藏的factor</li>
+<li>Tree Feature Transformation</li>
+</ul>
+<h1>Regression Or Ranking</h1>
+<ul>
+<li>准确的预测绝对值， 大部分情况下正确率是比较低的</li>
+<li>Ranking问题的可预测性则高一点</li>
+<li>"我不知道哪只股票会涨， 但我知道哪只股票涨的比别的多"</li>
+<li>利用learning To Rank对股票进行ranking</li>
+</ul>
+<h1>Method</h1>
+<ul>
+<li>learning To Rank : 将两只股票的delta作为loss Function</li>
+<li>绝对值binary化: 涨幅10%等价于10个positive</li>
+<li>loss:
+    $$min \frac{1}{2}||w||^{2}+C\sum\xi <em s="s">{s}$$
+     $$ s.t. w^{T}(x</em>^{+}-x_{s}^{-})\geq 1-\xi _{s} $$</li>
+</ul>
+<h1>Frame</h1>
+<p><img alt="整体架构" src="../images/stock.png" /></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
