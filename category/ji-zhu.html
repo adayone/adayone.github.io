@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>day one - 技术</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li class="active"><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/stock-prediction.html">Stock Prediction</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-06-10T00:00:00+08:00">
+                Published: 三 10 六月 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info --><h1>Stock Prediction</h1>
+<h2>Using Machine Learning And Bigdata</h2>
+<h1>Outline</h1>
+<ul>
+<li>Pair Trade</li>
+<li>涨幅预测</li>
+<li>股指预测</li>
+</ul>
+<h1>Pair Trade</h1>
+<ul>
+<li>define : 在价值规律的前提下，寻找价值相背离的一对股票， 做对冲操作。</li>
+<li>key Point : Pair distance的准确性。</li>
+</ul>
+<h1>Statistical Pair Trade</h1>
+<ul>
+<li>采用推荐中的协同过滤公式, 计算整个市场每一只股票的相似度</li>
+<li>寻找相似股票中， 近期价值偏离的一对pair</li>
+<li>进行对冲操作</li>
+<li>Problem:难以确认最合适的相似度公式</li>
+</ul>
+<h1>Machine Learning Pair Trade</h1>
+<ul>
+<li>将所有的相似度公式作为一个feature</li>
+<li>利用第二天的偏离作为label</li>
+<li>直接learn出各个相似度公式的权重</li>
+</ul>
+<h1>Machine Learning 涨幅预测</h1>
+<ul>
+<li>data source : 股票市场数据，微博、雪球等ugc数据，资讯数据，电商数据</li>
+<li>Feature Engineering: 领域知识特征, n-gram、nn等feature Engineering</li>
+<li>algorithm : MART, Learning To Rank, FTRL, BOPR </li>
+</ul>
+<h1>Data Source</h1>
+<ul>
+<li>原生金融相关数据，包括上市公司的表现， 股票本身的表现</li>
+<li>金融资讯：来源于资讯数据的抓取， 关键词分析</li>
+<li>网民的上网数据： 关键词分析</li>
+<li>标志性的电商数据: 行业表现</li>
+</ul>
+<p>依托于odps， 我们可以轻松的存储使用这部分全量数据。</p>
+<h1>Feature Engineering</h1>
+<ul>
+<li>领域知识的feature构建, 有明确的金融含义的特征</li>
+<li>n-gram、word2vec : Feature generation  </li>
+<li>nn : 利用多层nn寻找隐藏的factor</li>
+<li>Tree Feature Transformation</li>
+</ul>
+<h1>Regression Or Ranking</h1>
+<ul>
+<li>准确的预测绝对值， 大部分情况下正确率是比较低的</li>
+<li>Ranking问题的可预测性则高一点</li>
+<li>"我不知道哪只股票会涨， 但我知道哪只股票涨的比别的多"</li>
+<li>利用learning To Rank对股票进行ranking</li>
+</ul>
+<h1>Method</h1>
+<ul>
+<li>learning To Rank : 将两只股票的delta作为loss Function</li>
+<li>绝对值binary化: 涨幅10%等价于10个positive</li>
+<li>loss:
+    $$min \frac{1}{2}||w||^{2}+C\sum\xi <em s="s">{s}$$
+     $$ s.t. w^{T}(x</em>^{+}-x_{s}^{-})\geq 1-\xi _{s} $$</li>
+</ul>
+<h1>Frame</h1>
+<p><img alt="整体架构" src="../images/stock.png" /></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/admm.html" rel="bookmark"
+                           title="Permalink to ADMM">ADMM</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-03-07T00:00:00+08:00">
+                Published: 六 07 三月 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->                <p><a href="http://joegaotao.github.io/cn/2014/02/admm/" title="Permalink to 分布式计算、统计学习与ADMM算法 | 统计边，生活处">Source</a></p>
+<h1>分布式计算、统计学习与ADMM算法 | 统计边，生活处</h1>
+<p>在整理旧电脑时，才发现13年下半年电脑里有不少残文。老师说，东西搁下了再拿起来花费的时间和之前可能差不多。我一眼看过去这篇关于分布式计算的文章，貌似还真的没有了当时理解的深度和感觉。当时还想利用ADMM算法，把统计中常见的带惩罚的高维问题在此框架下用R重写一下，但是中途多种事情一耽搁，就早已抛之脑后。看来任何事情，真的还是需要坚持，哪怕拨点时间都是好的。先把一篇残文扔出来祭奠下过去的13年吧。公式多文字长，慎入！</p>
+<hr />
+<p>业界一直在谈论大数据，对于统计而言，大数据其实意味着要不是样本量增加$n rightarrow infty$，要不就是维度的增加$p rightarrow infty$，亦或者两者同时增加，并且维度与样本量的增长速度呈线性或者指数型增长。在稀疏性的假设条件下，再加上一些正则性方法，统计学家可以证明各种加penalty的模型所给出的参数估计具有良好的统计性质，收敛速度也有保证，同时还会给出一些比较好的迭代算法，但是，他们并没有考虑真实环境下的所消耗的计算时间。虽然统计学家也希望尽量寻求迭代数目比较少的算法（比如one-step估计），但是面对真实的Gb级别以上的数据，很多时候我们还是无法直接用这些算法，原因是一般的硬件都无法支撑直接对所有数据进行运算的要求。如果想减少抽样误差，不想抽样，又想提高估计的精度，那么还是需要寻求其他思路，结合已有的模型思想来解决这些问题 ...</p>
+                <a class="readmore" href="/admm.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/macxia-li-yong-pandocmarkdownlai-xie-slide.html" rel="bookmark"
+                           title="Permalink to MAC下利用pandoc+markdown来写slide">MAC下利用pandoc+markdown来写slide</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-01-16T00:00:00+08:00">
+                Published: 五 16 一月 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>Mac下用markdown+markdown写slide</h1>
+<h2>WHY</h2>
+<p>写一份markdown文件， 根据需要可以生成:</p>
+<ul>
+<li>slide pdf</li>
+<li>document pdf</li>
+<li>slide html</li>
+</ul>
+<h2>安装</h2>
+<div class="highlight"><pre>brew install pandoc
+</pre></div>
+
+
+<h2>源码</h2>
+<div class="highlight"><pre># today
+
+## morning
+- I want to have breakfast
+
+## afternoon
+- I want to have lunch
+</pre></div>
+
+
+<h2>PDF</h2>
+<div class="highlight"><pre>pandoc -D latex &gt; mytemplate.tex
+</pre></div>
+
+
+<div class="highlight"><pre>pandoc test.md -o test.pdf -t beamer 
+--latex-engine<span class="o">=</span>xelatex 
+--template<span class="o">=</span>mytemplate.tex
+</pre></div>
+
+
+<p>直接执行是不成功的。</p>
+<h2>增加中文字体配置 ...</h2>
+                <a class="readmore" href="/macxia-li-yong-pandocmarkdownlai-xie-slide.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/zao-yin-shu-ju-de-chu-li.html" rel="bookmark"
+                           title="Permalink to 噪音数据的处理">噪音数据的处理</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-19T00:00:00+08:00">
+                Published: 二 19 八月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->                <p>最近在追踪模型的时候， 发现了一系列比较严重的数据污染， 有些来自于采集过程， 有些则是spam， 顺手整理了一下噪音处理的相关tips。</p>
+<h1>大数据中的预处理</h1>
+<h1>步骤</h1>
+<ul>
+<li>数据清洗</li>
+<li>数据集成</li>
+<li>数据转换</li>
+<li>数据降维</li>
+</ul>
+<h1>WHY</h1>
+<ul>
+<li>大数据带来的问题是， 海量的脏数据<ul>
+<li>缺失：缺少某种类型的数据， 缺少部分样本的数据</li>
+<li>噪音：数据收集过程中导致的错误或者越界</li>
+<li>矛盾：数据之间互相矛盾</li>
+</ul>
+</li>
+<li>没有高质量的数据， 就没有高质量的数据挖掘结果<ul>
+<li>决策依赖于高质量的数据</li>
+<li>模型依赖于高质量的数据</li>
+</ul>
+</li>
+</ul>
+<h1>measure</h1>
+<ul>
+<li>准确度</li>
+<li>完整度</li>
+<li>一致性</li>
+<li>时间轴</li>
+<li>可信度</li>
+<li>附加值</li>
+<li>可解释性</li>
+<li>可获得性</li>
+</ul>
+<h1>main mission</h1>
+<ul>
+<li>数据清洗: 缺失值填充， 噪音平滑， 异常值处理</li>
+<li>数据集成: 多种来源数据集成</li>
+<li>数据转换: 标准化</li>
+<li>数据降维: 合并相似数据   </li>
+</ul>
+<h1>data clean</h1>
+<h3>数据清洗步骤</h3>
+<ul>
+<li>缺失值填充 ...</li></ul>
+                <a class="readmore" href="/zao-yin-shu-ju-de-chu-li.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/shi-yong-pelicanda-jian-bo-ke.html" rel="bookmark"
+                           title="Permalink to 使用pelican搭建博客">使用pelican搭建博客</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-18T00:00:00+08:00">
+                Published: 一 18 八月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->                <p>之前的博客用的是octopress， 挺好的， 也没啥毛病， 就是我不会ruby，出个小问题纠结大半天。</p>
+<p>因为最熟悉的语言是python，找了下有没有python的frame，发现还真有： pelican。</p>
+<p>这下子就简单了：</p>
+<ol>
+<li>pip install pelican</li>
+<li>pip install Markdown</li>
+<li>pelican-quickstart</li>
+</ol>
+<p>这些整完后就可以写blog了。</p>
+<p>很多人一上手就用了octopress， 反而弄混了，这里解释下：</p>
+<ul>
+<li><s>github pages, 在gh-pages下都是html文件。</s></li>
+<li>octopress、pelican、jeklly， 都是用来生成这些html的。</li>
+<li>理论上， 鉴于国内github的速度， 最好的办法是自己弄一台服务器，开一个最简单的http server。</li>
+</ul>
+<p>为了方便起见， 改写了MakeFile文件， 增加了对百度云的支持， 同时因为一部分文档是不适合泄露的，额外建立一个private的content和output的文件夹， 在MakeFile的html和serve那里增加了对这些的支持。</p>
+<p>申请了一台阿里云的服务器， 准备部署。</p>
+<h2>update</h2>
+<p>申请到阿里云的服务器了， 在服务器上用了个最简单的httpserver:</p>
+<div class="highlight"><pre>nohup python -m SimpleHTTPServer <span class="m">80</span> <span class="p">&amp;</span>
+</pre></div>
+
+
+<p>在makefile里面配置rsync同步 ...</p>
+                <a class="readmore" href="/shi-yong-pelicanda-jian-bo-ke.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/shi-shi-ce-lue.html" rel="bookmark"
+                           title="Permalink to 实时策略">实时策略</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-12-18T00:00:00+08:00">
+                Published: 三 18 十二月 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-zhu.html">技术</a>.</p>
+
+</footer><!-- /.post-info -->                <p>传统的推荐以离线为主， 以预测用户偏好品牌为例，大致分为这几个步骤:</p>
+<ul>
+<li>离线采集计算用户， 品牌等各个维度的特征。</li>
+<li>根据业务目标给出样本集合， 比如比较典型的CTR， 对于给定样本数据， 点击为正例， 不点击为负例。候选集的挑选有时候充满了trick， 尤其在业务的主体流量不是推荐的时候。</li>
+<li>使用模型进行离线训练， 以线性模型居多， 包括LR, pair-wise, list-wise等。在海量情况下， 复杂模型比较罕见。</li>
+<li>根据模型预测获得用户的偏好品牌列表。</li>
+</ul>
+<p>相对于直接利用热门或者协同过滤做出的推荐， 这种方式能够获得良好的提升以及更好的泛化能力， 但是面对以下几种情况无能为力：</p>
+<ul>
+<li>每天有大量新用户拥入。</li>
+<li>用户对品牌的点击在过去没有特征， 看起来似乎是天外飞仙般出现， 但又不是热销。 </li>
+<li>无法实时的对用户的正反馈和负反馈进行算法上的回馈， 尤其是当你发现你X掉了一堆东西， 类似的商品还在源源不断的涌向你的时候。</li>
+</ul>
+<p>实时的数据对于推荐系统而言， 是一座新的金矿， 可以为用户进行更准确地推荐， 同时及时响应各种反馈， 提升用户体验。 用户能感受到推荐系统和他的交互， 会更主动积极的贡献自己的行为特点， 从而形成良性循环。</p>
+<p>比较常见的一种做法是实时特征的引入， 训练过程依然在离线完成：</p>
+<ol>
+<li>收集实时数据， 做离线训练</li>
+<li>做在线预测</li>
+</ol>
+<p>另一部分采用的是online learning, 利用用户不停的行为反馈（包含显式的和隐式的）， 来调整特征权重。</p>
+<p>现在在考虑一种在线增强学习的方式， 假定我们现在有四种投放策略 ...</p>
+                <a class="readmore" href="/shi-shi-ce-lue.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

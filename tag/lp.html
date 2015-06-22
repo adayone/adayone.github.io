@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>day one - lp</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/xian-xing-gui-hua.html">线性规划</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2011-03-23T10:00:00+08:00">
+                Published: 三 23 三月 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+<p>tags: <a href="/tag/lp.html">lp</a> <a href="/tag/matlab.html">matlab</a> </p>
+</footer><!-- /.post-info --><h1>function define</h1>
+<p>$$minf^Tx$$
+$$A \cdot x \leq b$$
+$$A_eq \cdot x = b_eq$$
+$$lb \leq x \leq ub$$</p>
+<p>函数形式:
+linprog(f, A, b, Aeq, beq, lb, ub)</p>
+<p>如果不存在就是[]</p>
+<h1>problem</h1>
+<p>Find x that minimizes</p>
+<p>f(x) = –5x1 – 4x2 –6x3,</p>
+<p>subject to</p>
+<p>x1 – x2 + x3 ≤ 20
+3x1 + 2x2 + 4x3 ≤ 42
+3x1 + 2x2 ≤ 30
+0 ≤ x1, 0 ≤ x2, 0 ≤ x3.</p>
+<h1>code</h1>
+<div class="highlight"><pre><span class="c">% 注意， 是列向量</span>
+<span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">;</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span> <span class="o">-</span><span class="mi">6</span><span class="p">];</span>
+<span class="n">A</span> <span class="p">=</span>  <span class="p">[</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span>  <span class="mi">1</span>
+<span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">4</span>
+<span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">0</span><span class="p">];</span>
+<span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">;</span> <span class="mi">42</span><span class="p">;</span> <span class="mi">30</span><span class="p">];</span>
+<span class="n">lb</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">linprog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,[],[],</span><span class="n">lb</span><span class="p">,</span> <span class="p">[])</span>
+</pre></div>
+
+
+<p>示例代码没有最后那个[],好像跑不过。</p>
+<p>似乎返回值也没办法那么对， 原先是:
+[x,fval,exitflag,output,lambda] = linprog(f,A,b,[],[],lb);</p>
+<h1>无约束非线性</h1>
+<p>还有一个无约束非线性的:fminunc</p>
+<p>Minimize the function f(x)=3x</p>
+<p>Create a file myfun.m:</p>
+<p>function f = myfun(x)
+f = 3<em>x(1)^2 + 2</em>x(1)*x(2) + x(2)^2;    % Cost function
+Then call fminunc to find a minimum of myfun near [1,1]:</p>
+<p>x0 = [1,1];
+[x,fval] = fminunc(@myfun,x0);</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

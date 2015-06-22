@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="utf-8" />
+        <title>day one</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">day one </a></h1>
+                <nav><ul>
+                    <li><a href="/category/ji-qi-xue-xi.html">机器学习</a></li>
+                    <li><a href="/category/ji-zhu.html">技术</a></li>
+                    <li><a href="/category/sheng-huo.html">生活</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/python-he-matlab.html" rel="bookmark"
+                           title="Permalink to python 和 matlab">python 和 matlab</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-11-21T09:00:00+08:00">
+                Published: 五 21 十一月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/matlab.html">matlab</a> </p>
+</footer><!-- /.post-info -->                <h1>线形代数</h1>
+<blockquote>
+<p>线形代数（linear algebra）是数学的一个分支，研究矩阵理论、向量空间、线性变换和有限维线形方程组等内容。</p>
+</blockquote>
+<h2>主要思想</h2>
+<ol>
+<li>线性代数的核心内容是研究有限维线性空间的结构和线性空间的线性变换</li>
+<li>向量的线性相关性是研究线性空间结构与线性变换理论的基础</li>
+<li>矩阵是有限维线性空间的线性变换的表示形式</li>
+<li>线性方程组的求解问题是n维空间到m维空间线性映射求核和全体原象的问题</li>
+<li>行列式是研究这些问题的一个工具。</li>
+</ol>
+<h2>主要内容</h2>
+<ol>
+<li>矩阵运算：加减乘除、转置、逆矩阵、行列式、矩阵的幂、伴随矩阵</li>
+<li>矩阵分块、秩、迹</li>
+<li>解方程</li>
+<li>线性相关</li>
+<li>向量空间</li>
+<li>特征值和特征向量</li>
+<li>对称、相似</li>
+<li>二次标准型</li>
+<li>线性空间和基变换</li>
+<li>正交空间</li>
+<li>矩阵对角化</li>
+<li>矩阵分解</li>
+<li>重要数字特征。</li>
+</ol>
+<h1>MATLAB的处理</h1>
+<h2>建立矩阵</h2>
+<p>MATLAB中，矩阵是默认的数据类型。它把向量看做1×N或者N×1的矩阵。</p>
+<p>建立了一个行向量，不同元素之间使用空格或者逗号分开都是可以的。</p>
+<div class="highlight"><pre><span class="n">A</span><span class="p">=[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3 ...</span></pre></div>
+                <a class="readmore" href="/python-he-matlab.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/combinar.html" rel="bookmark"
+                           title="Permalink to combinar">combinar</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-11-20T20:00:00+08:00">
+                Published: 四 20 十一月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+<p>tags: <a href="/tag/suan-fa-you-hua.html">算法优化</a> </p>
+</footer><!-- /.post-info -->                <p>在做预估的过程中， 其实存在着ctr、cvr两个目标， 解决大致有几种方式:</p>
+<ul>
+<li>pairwise, 以成交&gt;点击的组pair方式完成</li>
+<li>multitask learing</li>
+<li>combinar</li>
+</ul>
+<p>combinar一直是一个比较耐操的东西， 在某些情况下， 简单的均值就能得到不错的效果（很多并行化的方式就是求均值）。</p>
+<p>另一个问题， 离线版本的训练是天级别的，假设消费者存在购买的一周周期律， 那么就会存在对天的过拟合：比如在周五的效果就特别好。</p>
+<p>相比之前的pairwise， combinar方式效果莫名的好， 利用训练体系自动产生多天的ctr、cvr版本， 对weight求均值。</p>
+                <a class="readmore" href="/combinar.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/recovering-fang-fa.html" rel="bookmark"
+                           title="Permalink to Recovering 方法">Recovering 方法</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-11-20T20:00:00+08:00">
+                Published: 四 20 十一月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+<p>tags: <a href="/tag/zui-you-hua.html">最优化</a> </p>
+</footer><!-- /.post-info -->                <p>对于很高的dimension， 比较常用的时random variable， 老金表示利用一下转化效果会更好。
+paper参见：recovering the opt solution by dual random projection</p>
+<div class="highlight"><pre><span class="n">V</span><span class="p">=</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="o">*</span><span class="nb">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="nb">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mf">0.001</span><span class="p">;</span> 
+<span class="p">[</span><span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span> <span class="p">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">V</span> <span class="o">*</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">[</span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">B</span><span class="p">]</span> <span class="p">=</span> <span class="n">svds</span><span class="p">(</span><span class="n">Q</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">V</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="n">A</span> <span class="p">=</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">U</span><span class="p">;</span>
+<span class="n">sumsqr</span><span class="p">(</span><span class="n">V</span><span class="o">-</span><span class="n">A</span><span class="o">*</span><span class="n">S</span><span class="o">*</span><span class="n">B</span><span class="o">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>V是自己造的一个数据，rank是20 ...</li></ul>
+                <a class="readmore" href="/recovering-fang-fa.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tree-feature-transform.html" rel="bookmark"
+                           title="Permalink to tree feature transform">tree feature transform</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-11-19T00:00:00+08:00">
+                Published: 三 19 十一月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+
+</footer><!-- /.post-info -->                <p>单纯的gbrt算法有较高的时间复杂度， 同时需要迭代获取最佳参数， 这方面lr更好。</p>
+<p>但是， lr无法处理非线性的特征， 需要自己将非线性的特征映射为线性的特征。</p>
+<p>所以， facebook采用了一种利用GBRT的叶子节点作为LR的输入特征的方式解决了这一问题。</p>
+<p>paper：Practical Lessons from Predicting Clicks on Ads at Facebook.</p>
+<h1>step 1</h1>
+<p>使用GBRT进行训练， 利用grid search获得最佳参数。</p>
+<h1>step 2</h1>
+<p>对于GBRT的预测结果，首先对所有子树叶子节点编号，如果样本在第一棵子树落入2， 在第二棵子树落入4， 那么就输出[2, 4]，以此类推, 如果是稠密特征的话， 就是[0,1,0,1,0]。</p>
+<p><img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/IMG_0378.JPG" /></p>
+<h1>step 3</h1>
+<p>将预测数据的结果做为输入的feature， 运行线性模型进行训练预测， 产生最终的预测结果。</p>
+<h1>improvement</h1>
+<p>一方面， 利用tree做feature transform可以消除correlation的影响， 另一方面以较低的代价获得了非线性的优势 ...</p>
+                <a class="readmore" href="/tree-feature-transform.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/graphbian-cheng.html" rel="bookmark"
+                           title="Permalink to graph编程">graph编程</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-11-18T17:00:00+08:00">
+                Published: 二 18 十一月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+<p>tags: <a href="/tag/graph.html">graph</a> <a href="/tag/odps.html">odps</a> </p>
+</footer><!-- /.post-info -->                <h1>eclipse配置</h1>
+<p>把最新的odps的tar包里面的lib加到external jar。</p>
+<h1>上传数据</h1>
+<p>用dship上传测试数据， 测试数据为：</p>
+<div class="highlight"><pre>1<span class="se">\t</span>2:2,3:1,4:4
+2<span class="se">\t</span>1:2,3:2,4:1
+3<span class="se">\t</span>1:1,2:2,5:1
+4<span class="se">\t</span>1:4,2:1,5:1
+5<span class="se">\t</span>3:1,4:1
+</pre></div>
+
+
+<p>这里要解决的是最短路径的问题，实际表示图结构是：</p>
+<p><img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/youxiang.jpg" /></p>
+<h1>编译jar</h1>
+<p>在eclipse里面输出jar包。</p>
+<h1>执行</h1>
+<p>执行如下shell脚本 ...</p>
+                <a class="readmore" href="/graphbian-cheng.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/down-sampling-pair-wise.html" rel="bookmark"
+                           title="Permalink to Down Sampling Pair Wise">Down Sampling Pair Wise</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-12T10:54:00+08:00">
+                Published: 五 12 九月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>Down Sampling PairWise</h1>
+<blockquote>
+<p>Written by haoyuan hu</p>
+</blockquote>
+<h1>introduce</h1>
+<ul>
+<li>
+<p>PairWise Loss:
+$ L_{rank} (f;S) = \frac {1} {mn} \sum_{j=1}^{m}\sum_{i=1}^{n} 1{\hskip -2.5 pt}\hbox{I}(f(x_i)^+ \le (f(x_j^-)) $</p>
+</li>
+<li>
+<p>Down Sampling PairWise Loss:
+$ L_{rank} (f;S) = \frac {1} {n} \sum_{i ...</p></li></ul>
+                <a class="readmore" href="/down-sampling-pair-wise.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/learning-to-rank.html" rel="bookmark"
+                           title="Permalink to learning to rank">learning to rank</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-12T00:00:00+08:00">
+                Published: 五 12 九月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/ji-qi-xue-xi.html">机器学习</a>.</p>
+
+</footer><!-- /.post-info -->                <h1>历史阶段</h1>
+<ol>
+<li>Optimizing search engines using clickthrough data, T Joachims, KDD 02——ranksvm的提出。</li>
+<li>Efficient algorithms for ranking with SVMs, O Chapelle——提出primal SVM提升效率。</li>
+<li>Person Re-Identification by Support Vector Ranking, BMVC2010——提出Ensemble RankSVM解决memory consumption问题。</li>
+</ol>
+<h1>svm算法描述</h1>
+<p>svm求解的目标是能够正确划分数据集并且几何间隔最大的分离超平面， 与感知机的求解误分类最小的策略有所不同。我们这里仅以线性svm为例进行介绍。</p>
+<p>对于超平面(w, b), 样本点$(x_i, y_i)$, 几何间隔定义为：</p>
+<p>$\gamma_i = y_i (\frac{w}{||w||} \cdot x_i ...</p>
+                <a class="readmore" href="/learning-to-rank.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/zai-lu-shan-de-shi-guang.html" rel="bookmark"
+                           title="Permalink to 在庐山的时光">在庐山的时光</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-25T00:00:00+08:00">
+                Published: 一 25 八月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/sheng-huo.html">生活</a>.</p>
+
+</footer><!-- /.post-info -->                <p>照片还真是难忘啊。
+在庐山的几天， 吃喝玩乐，遇到了一些很可爱的朋友。</p>
+<h3>一群疯狂的人类</h3>
+<p><img alt="一群疯狂地人类" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/IMG_0615.jpg" /></p>
+<h3>两个傻哈哈</h3>
+<p><img alt="两个傻哈哈" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/IMG_0785.jpg" /></p>
+<h3>呆萌</h3>
+<p><img alt="呆萌" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/IMG_0946.jpg" /></p>
+<h3>梦一般的亭子</h3>
+<p><img alt="梦一般的亭子" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/IMG_0959.jpg" /></p>
+                <a class="readmore" href="/zai-lu-shan-de-shi-guang.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/ni-jia-hou-yuan-de-zui-mei-gong-lu.html" rel="bookmark"
+                           title="Permalink to 你家后院的最美公路">你家后院的最美公路</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-24T17:30:00+08:00">
+                Published: 日 24 八月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/sheng-huo.html">生活</a>.</p>
+
+</footer><!-- /.post-info -->                <p><img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/Awesome_1408872874030.jpg" /></p>
+<p>趁着天气放晴， 把摩托车拖出来跑起， 往车行跑的时候， 又看到了这条路。</p>
+<p>位置在蝶园后面， 有一段封闭的余杭塘路， 几乎没有人来往。</p>
+<p>在桥那里有条小路下去， 就进入了一个公园。</p>
+<p>打算在杭州这段时间做一个系列， 叫做你家后院的最美XXX。</p>
+                <a class="readmore" href="/ni-jia-hou-yuan-de-zui-mei-gong-lu.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/zhong-fan-tu-bu-bei-gao-feng.html" rel="bookmark"
+                           title="Permalink to 重返徒步北高峰">重返徒步北高峰</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-24T00:00:00+08:00">
+                Published: 日 24 八月 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/haoyuan-hu.html">haoyuan hu</a>
+        </address>
+<p>In <a href="/category/sheng-huo.html">生活</a>.</p>
+
+</footer><!-- /.post-info -->                <h3>北高峰</h3>
+<p>之前很长时间都没有爬山， 这周赶上学校校友会组织爬山， 虽然知道我们这种和尚学校组织活动十有八九是一大波好基友黑压压的一片然后聊一路技术问题， 还是拉上了人一起去了。</p>
+<p>体力果然下滑的很明显， 差不多到亭子那里， 大家就开始讨论是植物园下山还是北高峰下山， 鉴于这么久没运动， 还是咬咬牙往北高峰进发了。</p>
+<p>过程中陆陆续续的有人休息， 最后相对休闲的频率登上了北高峰， 校友会的大师兄和他女儿已经在山顶等了。</p>
+<p>这是到峰顶财神庙的照片</p>
+<p><img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/PA070060.jpg" /></p>
+<p>下山的过程相对就轻松了， 顺路也拍了两张照片。</p>
+<p><img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/PA070063.jpg" />
+<img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/PA070064.jpg" /></p>
+<p>整条线路坡度比较陡的实际上是在老和山上山后那一段， 过了植物园的岔路口， 整体就没什么太长的破路了。</p>
+<h3>返程</h3>
+<p>出灵隐比较悲剧， 一直没有坐到车， 最后去西湖边绕了一圈才回来， 顺路去修了失灵的手机。
+<img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/PA070068.jpg" /></p>
+<h3>云水驿</h3>
+<p>回来和同学去了云水驿吃饭， 驻场的两个妹子唱的还不错。</p>
+<p><img alt="" src="http://orange-tree.oss-cn-hangzhou.aliyuncs.com/blog-images/PA070072.jpg" /></p>
+                <a class="readmore" href="/zhong-fan-tu-bu-bei-gao-feng.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/index.html">&laquo;</a>
+    Page 2 / 3
+        <a href="/index3.html">&raquo;</a>
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
